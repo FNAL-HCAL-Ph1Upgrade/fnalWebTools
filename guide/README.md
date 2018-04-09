@@ -31,7 +31,7 @@ Links with names of snippets/directories in the (fake) CfgCVS will be displayed,
 <img src='browseSnippets_grandmaster.png' width=400px align="right"/>
 
 After navigating through directories, when you click on a link to a file, the content of that snippet will be displayed.
-<br><br><br>
+<br><br><br><br><br>
 
 
 getCfgScript
