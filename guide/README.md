@@ -76,3 +76,23 @@ To see the differences between the CFG scripts used for two runs, enter their tw
 <br><br>
 
 Click "Submit query" and you will see a diff of the two runs' CFG scripts.
+<br><br><br><br><br><br><br>
+
+
+webHandsaw
+----------
+<img src='webHandsaw_splash.png' width=400px align="right"/>
+
+This tool provides a web interface to access the LogCollector logs formatted using the `Handsaw.pl` parser.
+
+### Splash page
+
+To see the logs, type a number of lines into the input box on the splash page. (This number is the number of lines of the xml file where the logs are encoded; so pick a number that is ~5 times larger than the number of log messages you'd like to see.) 
+<br><br><br><br>
+
+### Diff display
+<img src='webHandsaw_logs.png' width=400px align="right"/>
+
+<br><br>
+
+Click "Submit query" and you will see the logs from the DAQ software collected by the LogCollector.
