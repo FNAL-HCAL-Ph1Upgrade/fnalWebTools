@@ -24,11 +24,13 @@ This tool allows one to browse the FNALfakeCfgCVS snippets via the web.
 
 Links with names of snippets/directories in the (fake) CfgCVS will be displayed, along with a label indicating if the link corresponds to a snippet or a directory.
 
-### Snippet display
 <img src='browseSnippets_grandmaster.png' width=400px align="right"/>
+<br><br>
+
+### Snippet display
 
 After navigating through directories, when you click on a link to a file, the content of that snippet will be displayed.
-<br><br><br><br><br>
+<br><br><br>
 
 
 getCfgScript
