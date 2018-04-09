@@ -8,4 +8,13 @@ https://github.com/HCALRunControl/logViewer/tree/fnal
 
 TODO: Also contained here are the modified tomcat server configuration files for allowing simple cgi scripts to run in a tomcat server.
 
-TODO: The layout for where all these files need to be deployed...
+The layout for these files when installed in the tomcat server is:
+```
+daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/
+asf-logo-wide.svg  bg-middle.png    bg-nav.png	  favicon.ico		 fnalHomePage.css   fnalLogo.png      home.html  RELEASE-NOTES.txt  tomcat.gif	tomcat-power.gif  webHandsaw_black.png	webHandsaw.html  WEB-INF
+bg-button.png	   bg-nav-item.png  bg-upper.png  FNALfakeCfgCVSbrowser  fnalLogo_gray.png  functionmanagers  index.jsp  tomcat.css	    tomcat.png	tomcat.svg	  webHandsaw.css	webHandsaw.png
+daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/
+cgi  web.xml
+daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/cgi/
+ansi2html.py  ansi2html.pyc  browseSnippets.cgi  diffCfgScripts.cgi  getCfgScript.cgi  logHtml.py  logHtml.pyc	viewLogs.cgi  webHandsaw_conf.ini
+```
