@@ -1,7 +1,7 @@
 FNAL web tools
 --------------
 
-This repo contains some web-based tools that can be used through [the FNAL teststand's tomcat server](http://cmsnghcal01.fnal.gov:16000/). They could also be reused on a similar teststand.
+This repo contains some web-based tools that can be used through [the FNAL teststand's tomcat server](http://cmsnghcal01.fnal.gov:16000/). They could also be reused on a similar teststand. Please see the [guide](guide/README.md) for an overview of the functionalities and usage.
 
 FNAL also runs a modified version of webHandsaw, which can be found here:
 https://github.com/HCALRunControl/logViewer/tree/fnal
