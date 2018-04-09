@@ -10,7 +10,7 @@ Homepage
 This page serves as the launch pad for using the FNAL web tools.
 
 After setting up your ssh tunnel (see instructions [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/FNALHCalMicroTCATestStand#Login_Instructions)), visit http://cmsnghcal01.fnal.gov:16000/. You should see the main page with links to the other tools and assorted other links. 
-<br><br><br><br>
+<br><br><br><br><br>
 
 
 browseSnippets
@@ -23,7 +23,6 @@ This tool allows one to browse the FNALfakeCfgCVS snippets via the web.
 ### Navigation pages
 
 Links with names of snippets/directories in the (fake) CfgCVS will be displayed, along with a label indicating if the link corresponds to a snippet or a directory.
-<br><br><br><br><br><br><br>
 
 ### Snippet display
 <img src='browseSnippets_grandmaster.png' width=400px align="right"/>
