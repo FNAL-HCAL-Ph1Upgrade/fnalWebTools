@@ -54,7 +54,7 @@ else:
   import difflib
   htmlDiffer = difflib.HtmlDiff(wrapcolumn=90)
   body = htmlDiffer.make_table(earlierCfgScript, laterCfgScript, "", "", True)
-
+  body = "<h2>Diff of CFG scripts between Run #{0} (left) and Run #{1} (right)</h2>".format(earlierRun, laterRun) + body
 
 print "Content-type: text/html"
 print
