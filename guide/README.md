@@ -30,8 +30,10 @@ Links with names of snippets/directories in the (fake) CfgCVS will be displayed,
 
 <img src='browseSnippets_grandmaster.png' width=400px align="right"/>
 
+<br><br>
+
 After navigating through directories, when you click on a link to a file, the content of that snippet will be displayed.
-<br><br><br><br><br>
+<br><br><br><br>
 
 
 getCfgScript
@@ -51,6 +53,8 @@ Enter the run number of the run whose CFG script you would like to retrieve
 
 <img src='getCfgScript_cfg.png' width=400px align="right"/>
 
+<br><br>
+
 Click "Submit query" and you will see a display of the CFG script used for that run.
 <br><br><br><br><br><br><br>
 
@@ -68,5 +72,7 @@ To see the differences between the CFG scripts used for two runs, enter their tw
 
 ### Diff display
 <img src='diffCfgScripts_diff.png' width=400px align="right"/>
+
+<br><br>
 
 Click "Submit query" and you will see a diff of the two runs' CFG scripts.
