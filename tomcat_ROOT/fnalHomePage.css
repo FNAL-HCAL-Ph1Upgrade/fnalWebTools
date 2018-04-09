@@ -1,0 +1,43 @@
+body {
+  background-color: #f8f8f8;
+  font-family: "Open Sans", sans-serif;
+}
+#top {
+  padding-bottom: 15px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: #3a5165;
+  padding-top: 15px;
+}
+h1 {
+  background-color: #3a5165;
+  font-size: 32px;
+  color: #cecece;
+  display: inline;
+  width: 100%;
+  min-width: 530px;
+}
+h1 > span {
+  padding-left: 32px;
+}
+h2 {
+  margin-bottom: 0px;
+}
+img {
+  float: left;
+  padding-left: 30px;
+}
+#welcome {
+  padding-top: 40px;
+}
+#wrapper {
+  column-width: 480px;
+}
+.links {
+display: grid;
+-webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+               break-inside: avoid;
+}
