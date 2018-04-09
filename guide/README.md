@@ -44,7 +44,7 @@ This tool queries the FNAL RunInfo database to get the full CFG script as compil
 ### Splash page
 
 Enter the run number of the run whose CFG script you would like to retrieve
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
 
 ### CFG script display
@@ -64,7 +64,7 @@ This tool also queries the FNAL RunInfo database, but retrieves the CFG scripts 
 ### Splash page
 
 To see the differences between the CFG scripts used for two runs, enter their two run numbers. 
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 
 ### Diff display
 <img src='diffCfgScripts_diff.png' width=400px align="right"/>
