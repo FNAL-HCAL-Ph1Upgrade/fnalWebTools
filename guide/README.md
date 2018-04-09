@@ -15,9 +15,11 @@ browseSnippets
 
 ### Navigation pages
 <img align="right" width="400" src="browseSnippets_dir.png" />
+Links with names of snippets/directories in the (fake) CfgCVS will be displayed, along with a label indicating if the link corresponds to a snippet or a directory.
 
 ### Snippet display
 <img align="right" width="400" src="browseSnippets_grandmaster.png" />
+After navigating through directories, when you click on a link to a file, the content of that snippet will be displayed.
 
 getCfgScript
 ------------
@@ -30,6 +32,7 @@ Enter the run number of the run whose CFG script you would like to retrieve
 
 ### CFG script display
 <img align="right" width="400" src="getCfgScript_cfg.png" />
+Click "Submit query" and you will see a display of the CFG script used for that run.
 
 
 diffCfgScripts
@@ -37,6 +40,8 @@ diffCfgScripts
 
 ### Splash page
 <img align="right" width="400" src="diffCfgScripts_splash.png" />
+To see the differences between the CFG scripts used for two runs, enter their two run numbers. 
 
 ### Diff display
 <img align="right" width="400" src="diffCfgScripts_diff.png" />
+Click "Submit query" and you will see a diff of the two runs' CFG scripts.
