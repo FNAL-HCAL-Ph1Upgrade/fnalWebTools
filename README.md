@@ -13,6 +13,7 @@ The layout for these files when installed in the tomcat server is:
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/
 asf-logo-wide.svg  bg-middle.png    bg-nav.png	  favicon.ico		 fnalHomePage.css   fnalLogo.png      home.html  RELEASE-NOTES.txt  tomcat.gif	tomcat-power.gif  webHandsaw_black.png	webHandsaw.html  WEB-INF
 bg-button.png	   bg-nav-item.png  bg-upper.png  FNALfakeCfgCVSbrowser  fnalLogo_gray.png  functionmanagers  index.jsp  tomcat.css	    tomcat.png	tomcat.svg	  webHandsaw.css	webHandsaw.png
+# note: some of these files are default tomcat files
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/
 cgi  web.xml
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/cgi/
