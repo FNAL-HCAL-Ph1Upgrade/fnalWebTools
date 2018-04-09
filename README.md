@@ -11,11 +11,18 @@ Also contained here is (are) the modified tomcat server configuration file(s) fo
 The layout for these files when installed in the tomcat server is:
 ```
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/
-asf-logo-wide.svg  bg-middle.png    bg-nav.png	  favicon.ico		 fnalHomePage.css   fnalLogo.png      home.html  RELEASE-NOTES.txt  tomcat.gif	tomcat-power.gif  webHandsaw_black.png	webHandsaw.html  WEB-INF
-bg-button.png	   bg-nav-item.png  bg-upper.png  FNALfakeCfgCVSbrowser  fnalLogo_gray.png  functionmanagers  index.jsp  tomcat.css	    tomcat.png	tomcat.svg	  webHandsaw.css	webHandsaw.png
-# note: some of these files are default tomcat files, RCMS-related files, and webHandsaw files
+asf-logo-wide.svg  bg-upper.png		  fnalLogo.png	     tomcat.css        webHandsaw_black.png
+bg-button.png	   favicon.ico		  functionmanagers   tomcat.gif        webHandsaw.css
+bg-middle.png	   FNALfakeCfgCVSbrowser  home.html	     tomcat.png        webHandsaw.html
+bg-nav-item.png    fnalHomePage.css	  index.jsp	     tomcat-power.gif  webHandsaw.png
+bg-nav.png	   fnalLogo_gray.png	  RELEASE-NOTES.txt  tomcat.svg        WEB-INF
+### note: some of these files are default tomcat files, RCMS-related files, and webHandsaw files
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/
 cgi  web.xml
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/cgi/
-ansi2html.py  ansi2html.pyc  browseSnippets.cgi  diffCfgScripts.cgi  getCfgScript.cgi  logHtml.py  logHtml.pyc	viewLogs.cgi  webHandsaw_conf.ini
+ansi2html.py   browseSnippets.cgi  getCfgScript.cgi  logHtml.pyc   webHandsaw_conf.ini
+ansi2html.pyc  diffCfgScripts.cgi  logHtml.py	     viewLogs.cgi
+daqowner@cmsnghcal01 ~ # ls ~/tomcat/conf
+Catalina	 catalina.properties  logging.properties  server.xml.cmshcal4  tomcat-users.xml  web.xml
+catalina.policy  context.xml	      server.xml	  server.xml.default   tomcat-users.xsd
 ```
