@@ -6,7 +6,7 @@ This repo contains some web-based tools that can be used through [the FNAL tests
 FNAL also runs a modified version of webHandsaw, which can be found here:
 https://github.com/HCALRunControl/logViewer/tree/fnal
 
-TODO: Also contained here are the modified tomcat server configuration files for allowing simple cgi scripts to run in a tomcat server.
+Also contained here is (are) the modified tomcat server configuration file(s) for allowing simple cgi scripts to run in a tomcat server.
 
 The layout for these files when installed in the tomcat server is:
 ```
