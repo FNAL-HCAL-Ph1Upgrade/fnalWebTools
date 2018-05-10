@@ -29,6 +29,7 @@ else:
     body+="path %s not found!" % path
   else:
     dirlist = os.listdir(realName)
+    dirlist = [item for item in dirlist if not item.startswith('.')]
     body+= "    <h2 style='display:inline;'>%s</h2>\n"%realName
     body+= "    &nbsp;&nbsp;&nbsp;&nbsp; <a style='display:inline;' href='{0}?path={1}'>(up)</a>\n".format(thisPage, "/".join(path.split("/")[:-1]))
     body+="    <table>"
