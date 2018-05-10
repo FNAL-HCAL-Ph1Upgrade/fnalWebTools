@@ -38,12 +38,12 @@ else:
     for item in dirlist:
       if os.path.isfile("{0}/{1}/pro".format(realName, item)):
         timestamp = os.path.getmtime("{0}/{1}/pro".format(realName, item))
-        files.append(( "      <tr><td style='color:brown;'>file:</td><td> <a href='{2}/{1}/pro'>{0}/{1}/pro</a></td><td> last modified: {3}</td></tr>".format(
+        files.append(( "\n      <tr>\n        <td style='color:brown;'>file:</td>\n        <td> <a href='{2}/{1}/pro'>{0}/{1}/pro</a> </td>\n        <td>last modified: {3}</td>\n      </tr>".format(
           realName, item, path, time.strftime(fmt, time.localtime(timestamp))), timestamp )
         ) 
       elif os.path.isdir(realName):
         timestamp = os.path.getmtime("{0}/{1}".format(realName, item))
-        dirs.append(( "      <tr><td style='color:darkgreen;'>dir:</td><td> <a href='{2}?path={3}/{1}'>{0}/{1}</a></td><td>".format(
+        dirs.append(( "\n      <tr>\n        <td style='color:darkgreen;'>dir:</td>\n        <td> <a href='{2}?path={3}/{1}'>{0}/{1}</a> </td>\n      </tr>".format(
           realName, item, thisPage, path, time.strftime(fmt, time.localtime(timestamp))), timestamp)
         )
       else:
@@ -52,8 +52,11 @@ else:
   fileHTML = [snip[0] for snip in files]
   dirs.sort(key=lambda d: d[1])
   dirsHTML = [d[0] for d in dirs]
+  body += "\n"
   body += "\n".join(reversed(dirsHTML))
+  body += "\n"
   body += "\n".join(reversed(fileHTML))
+  body += "\n"
   body+="\n    </table>"
         
 print "Content-type: text/html"
