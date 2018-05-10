@@ -16,12 +16,19 @@ bg-button.png	   favicon.ico		  functionmanagers   tomcat.gif        webHandsaw.
 bg-middle.png	   FNALfakeCfgCVSbrowser  home.html	     tomcat.png        webHandsaw.html
 bg-nav-item.png    fnalHomePage.css	  index.jsp	     tomcat-power.gif  webHandsaw.png
 bg-nav.png	   fnalLogo_gray.png	  RELEASE-NOTES.txt  tomcat.svg        WEB-INF
+
 ### note: some of these files are default tomcat files, RCMS-related files, and webHandsaw files
+
+
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/
 cgi  web.xml
+
+
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/webapps/ROOT/WEB-INF/cgi/
 ansi2html.py   browseSnippets.cgi  getCfgScript.cgi  logHtml.pyc   webHandsaw_conf.ini
 ansi2html.pyc  diffCfgScripts.cgi  logHtml.py	     viewLogs.cgi
+
+
 daqowner@cmsnghcal01 ~ # ls ~/tomcat/conf
 Catalina	 catalina.properties  logging.properties  server.xml.cmshcal4  tomcat-users.xml  web.xml
 catalina.policy  context.xml	      server.xml	  server.xml.default   tomcat-users.xsd
