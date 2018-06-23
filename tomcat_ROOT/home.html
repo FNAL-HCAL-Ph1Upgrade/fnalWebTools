@@ -2,6 +2,7 @@
 <head>
   <title>FNAL Teststand Home Page</title>
   <link rel="stylesheet" type="text/css" href="fnalHomePage.css">
+  <link rel="stylesheet" type="text/css" href="fnalHomeIcons.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700" rel="stylesheet" type="text/css">
   <link rel="icon" type="image/png" href="fnalLogo.png">
 </head>
@@ -17,8 +18,8 @@
       <br>
       <h2>Links to FNAL teststand DAQ pages</h2>
       <ul>
-        <li> <a href="http://cmsnghcal01:16000/rcms/">FNAL Run Control</a>
-        <li> <a href="http://cmsnghcal01.fnal.gov:39999/urn:xdaq-application:lid=10">FNAL JobControl</a>
+        <a href="http://cmsnghcal01:16000/rcms/"> <li class="iconLink" id="runControl"> FNAL Run Control</li></a>
+        <a href="http://cmsnghcal01.fnal.gov:39999/urn:xdaq-application:lid=10"> <li class="iconLink" id="jobControl"> FNAL JobControl</li></a>
       </ul>
     </div>
 
@@ -26,11 +27,11 @@
       <br>
       <h2>Tools</h2>
       <ul>
-        <li> <a href="http://cmsnghcal01:16000/cgi-bin/browseSnippets.cgi">Browse FNAL snippets</a>
-        <li> <a href="http://cmsnghcal01:16000/rcms/gui/servlet/RunInfoServlet">FNAL teststand RunInfo</a>
-        <li> <a href="http://cmsnghcal01:16000/cgi-bin/getCfgScript.cgi">Get full CFG snippet for a FNAL teststand run</a>
-        <li> <a href="http://cmsnghcal01:16000/cgi-bin/diffCfgScripts.cgi">Diff CFG snippets between FNAL teststand runs</a>
-        <li> <a href="http://cmsnghcal01:16000/webHandsaw.html">FNAL webHandsaw for viewing logs</a>
+        <a href="http://cmsnghcal01:16000/cgi-bin/browseSnippets.cgi"> <li class="iconLink" id="snippetBrowser"> Browse FNAL snippets</li></a>
+        <a href="http://cmsnghcal01:16000/rcms/gui/servlet/RunInfoServlet"> <li class="iconLink" id="runInfo"> FNAL teststand RunInfo</li></a>
+        <a href="http://cmsnghcal01:16000/cgi-bin/getCfgScript.cgi"> <li class="iconLink" id="cfgScriptViewer"> Get full CFG snippet for a FNAL teststand run</li></a>
+        <a href="http://cmsnghcal01:16000/cgi-bin/diffCfgScripts.cgi"> <li class="iconLink" id="cfgScriptDiffer"> Diff CFG snippets between FNAL teststand runs</li></a>
+        <a href="http://cmsnghcal01:16000/webHandsaw.html"> <li class="iconLink" id="webHandsaw"> FNAL webHandsaw for viewing logs</li></a>
 
       </ul>
     </div>
@@ -39,11 +40,15 @@
       <br>
       <h2>External links</h2>
       <ul>
-        <li> <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/FNALHCalMicroTCATestStand">FNAL teststand twiki</a>
-        <li> <a href="https://github.com/FNAL-HCAL-Ph1Upgrade">FNAL teststand github</a>
-        <li> <a href="https://gitlab.cern.ch/cmshcos/hcal/issues">Post bug reports here</a>
-        <li> <a href="https://hcalops.slack.com/">HCAL operations Slack</a>
-        <li> <a href="http://johakala.web.cern.ch/johakala/">John's links page</a>
+        <li> <a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/FNALHCalMicroTCATestStand">FNAL teststand twiki</a> </li>
+        <li> <a href="https://nbay11.fnal.gov/hb/cards/catalog">ngHB QIEcard database interface</a> </li>
+        <li> <a href="https://twiki.cern.ch/twiki/bin/viewauth/CMS/HBTests2018WH14">2018 ngHB QIEcard quality control twiki</a> </li>
+        <li> <a href="https://cmsonline.cern.ch/webcenter/portal/cmsonline/Common/Elog?__adfpwp_action_portlet=623564097&__adfpwp_backurl=https://cmsonline.cern.ch:443/webcenter/portal/cmsonline/Common/Elog?__adfpwp_mode.623564097=1&_piref623564097.strutsAction=//viewSubcatMessages.do?catId=594&subId=771&page=1&fetch=1&mode=expanded">HCAL phase 1 electronics elog</a> </li>
+        <li> <a href="https://github.com/FNAL-HCAL-Ph1Upgrade">FNAL teststand github</a> </li>
+        <li> <a href="https://gitlab.cern.ch/cmshcos/hcal/issues">HCAL xdaq software gitlab</a> </li>
+        <li> <a href="https://nadjasninjas.slack.com/">Nadja's Ninjas Slack</a> </li>
+        <li> <a href="https://hcalops.slack.com/">HCAL operations Slack</a> </li>
+        <li> <a href="http://johakala.web.cern.ch/johakala/">John's links page</a> </li>
       </ul>
     </div>
 
@@ -51,7 +56,7 @@
       <br>
       <h2>Tomcat server links</h2>
       <ul>
-        <li> <a href="index.jsp">Tomcat default homepage</a>
+        <li> <a href="index.jsp">Tomcat default homepage</a> </li>
       </ul>
     </div>
 

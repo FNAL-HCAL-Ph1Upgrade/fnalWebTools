@@ -29,6 +29,12 @@ img {
   float: left;
   padding-left: 30px;
 }
+a {
+  color:#124499;
+}
+a:visited {
+  color: #124499;
+}
 #welcome {
   padding-top: 40px;
 }

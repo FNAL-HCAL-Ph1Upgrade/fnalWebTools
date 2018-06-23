@@ -1,0 +1,44 @@
+ul {
+  width: -moz-fit-content;
+}
+
+li.iconLink {
+  height: 35px;
+  list-style-type: none;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: 0px;
+  overflow:visible;
+  padding-left: 50px;
+  margin-left: -30px;
+  line-height: 38px;
+  width: -moz-fit-content;
+}
+
+#runControl{
+  background-image: url('icons/hcalfmlogo.png');
+}
+
+#jobControl{
+  background-image: url('icons/xdaq-logo.png');
+}
+
+#snippetBrowser{
+  background-image: url('icons/dirs.png');
+}
+
+#runInfo{
+  background-image: url('icons/runinfo.png');
+}
+
+#cfgScriptViewer{
+  background-image: url('icons/cfglogo.png');
+}
+
+#cfgScriptDiffer{
+  background-image: url('icons/diff.png');
+}
+
+#webHandsaw{
+  background-image: url('icons/webHandsaw_black.png');
+}
