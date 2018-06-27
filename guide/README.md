@@ -87,7 +87,7 @@ This tool again queries the FNAL RunInfo database, but compiles a list of runs o
 ### Splash page
 
 To see a list of recent runs that share the same local run key, enter a starting run number. All runs with run numbers equal to or greater than the one requested will be listed, grouped by their local run key.
-<<br><br><br><br>br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 
 ### List display
