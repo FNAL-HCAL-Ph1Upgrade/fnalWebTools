@@ -1,24 +1,36 @@
 #!/bin/env python
 
-import mysql.connector
+import cx_Oracle
 
 def getRunMaps(earliest):
-  config = {
-    'user': 'runinfoviewer',
-    'password': '',
-    'host': 'localhost',
-    'database': 'fermiruninfo',
-    'raise_on_warnings': True,
-  }
-  
-  cnx = mysql.connector.connect(**config)
+  # this is commented since it's for the mysql db at FNAL
+  #config = {
+  #  'user': 'runinfoviewer',
+  #  'password': '',
+  #  'host': 'localhost',
+  #  'database': 'fermiruninfo',
+  #  'raise_on_warnings': True,
+  #}
+  #
+  #cnx = mysql.connector.connect(**config)
+
+  # borrowed from RunInfoDiffer
+  password_file = open("RunInfoDiffer/database_pwd.txt","r")
+  password = password_file.readline().split("\n")[0]
+  password_file.close()
+  database = "cms_hcl_runinfo/%s@cms_rcms" % password
+
+  cnx = cx_Oracle.connect(database)
   cursor = cnx.cursor()
   
-  query = '''
-             SELECT runnumber, string_value
-             FROM fermiruninfo.runsession_parameter 
-             WHERE name LIKE "CMS.HCAL_LEVEL1%:LOCAL_RUNKEY_SELECTED" AND runnumber >= {};
-          '''.format(earliest)
+  #query = '''
+  #           SELECT runnumber, string_value
+  #           FROM runsession_parameter 
+  #           WHERE name LIKE "CMS.HCAL_LEVEL1%:LOCAL_RUNKEY_SELECTED" AND runnumber >= {};
+  #        '''.format(earliest)
+  query =  'SELECT runnumber, string_value '
+  query += 'FROM runsession_parameter '
+  query += "WHERE name LIKE 'CMS.HCAL_LEVEL_1%:LOCAL_RUNKEY_SELECTED' AND runnumber >= {}".format(earliest)
   cursor.execute(query)
   runMap = {}
   latestMap = []
@@ -41,7 +53,7 @@ if __name__ == "__main__":
     body += '''
       <h2>Get all runs organized by local runkey since run:</h2>
       <form action="/cgi-bin/getRunTypes.cgi">
-        <input type='number' name='first'>
+        <input type='number' name='first' value='318000'>
         <input type='submit'>
       </form>
     '''
@@ -67,7 +79,7 @@ if __name__ == "__main__":
   function goToDiff() {
     var runNumbers = $(':checkbox:checked');
     if (runNumbers.length == 2) {
-      window.location.href='/cgi-bin/diffCfgScripts.cgi?runX=' + $(runNumbers[0]).val() + '&runY=' + $(runNumbers[1]).val(); 
+      window.location.href='/cgi-bin/RunInfoDiffer/complete_Diff.py?runnumber1='+ $(runNumbers[0]).val() + '&runnumber2=' + $(runNumbers[1]).val() + '&partition=HCAL_HO&partition=HCAL_HF&partition=HCAL_HBHE&partition=HCAL_Laser'
     }
     else if (runNumbers.length != 2) { tally(); }
   }</script><script>
