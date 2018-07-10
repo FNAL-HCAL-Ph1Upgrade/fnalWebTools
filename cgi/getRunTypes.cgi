@@ -79,7 +79,7 @@ if __name__ == "__main__":
   function goToDiff() {
     var runNumbers = $(':checkbox:checked');
     if (runNumbers.length == 2) {
-      window.location.href='/cgi-bin/RunInfoDiffer/complete_Diff.py?runnumber1='+ $(runNumbers[0]).val() + '&runnumber2=' + $(runNumbers[1]).val() + '&partition=HCAL_HO&partition=HCAL_HF&partition=HCAL_HBHE&partition=HCAL_Laser'
+      window.location.href='/cgi-bin/RunInfoDiffer/complete_Diff.py?runnumber1='+ $(runNumbers[1]).val() + '&runnumber2=' + $(runNumbers[0]).val() + '&partition=HCAL_HO&partition=HCAL_HF&partition=HCAL_HBHE&partition=HCAL_Laser'
     }
     else if (runNumbers.length != 2) { tally(); }
   }</script><script>
