@@ -15,7 +15,7 @@ def getRunMaps(earliest):
   cursor = cnx.cursor()
   
   query = '''
-             SELECT runnumber, string_value
+             SELECT runnumber, string_value, time
              FROM fermiruninfo.runsession_parameter 
              WHERE name LIKE "CMS.HCAL_LEVEL1%:LOCAL_RUNKEY_SELECTED" AND runnumber >= {};
           '''.format(earliest)
@@ -28,7 +28,7 @@ def getRunMaps(earliest):
     else:
       latestMap.remove(str(value[1]))
     latestMap.insert(0, str(value[1]))
-    runMap[str(value[1])].append(value[0])
+    runMap[str(value[1])].append((value[0], value[2]))
   cnx.close()
   return runMap, latestMap
 
@@ -50,12 +50,16 @@ if __name__ == "__main__":
     body += "<pre>"
     runMap, latestMap = getRunMaps(form.getvalue('first'))
     
-    body += "\t \t \t <input type='button' onclick='goToDiff();' value='diff'>"
+    body += "\t \t \t \t \t \t<input type='button' onclick='goToDiff();' value='diff'>"
     for runKey in latestMap:
       body += "<br><br>" + runKey + ":"
+      body += " <input type='button' value='toggle'" 
+      body += " onclick='hide(" + '"' + runKey + '"' + ")'>"
+      body += "<div id='" + runKey +"'>"
       for run in reversed(runMap[runKey]):
-        body += '<br>\t \t <input type="checkbox" value="{0}" onclick="tally();"> {0} '.format(run)
-      body += "<input type='button' onclick='goToDiff();' value='diff'>"
+        body += '<br>\t <input type="checkbox" value="{0}" onclick="tally();"> {0: >6} \t\t{1}'.format(run[0], run[1])
+      body += "</div>"
+      body += "<br><br>\t \t \t \t \t \t<input type='button' onclick='goToDiff();' value='diff'>"
     body+="</pre>"
   
   print "Content-type: text/html"
@@ -70,14 +74,27 @@ if __name__ == "__main__":
       window.location.href='/cgi-bin/diffCfgScripts.cgi?runX=' + $(runNumbers[0]).val() + '&runY=' + $(runNumbers[1]).val(); 
     }
     else if (runNumbers.length != 2) { tally(); }
-  }</script><script>
+  }
+  </script>
+  <script>
   function tally() {
     if ($(':checkbox:checked').length > 2) {
       $(":checkbox").prop('checked', false);
     }
   }
   </script> 
-  """
+  <script>
+  function hide(divID) {
+    var x = document.getElementById(divID);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }  
+  }
+  </script>
+ 
+      """
   print" </head><body>"
   print body
   print "</body></html>"
