@@ -1,8 +1,13 @@
 #!/bin/env python
 
+# cgi script for making a list of runs organized chronologically and grouped by their local runkey name
+# this version is for FNAL. there is another version for P5.
+# John Hakala 7/11/18
+
 import mysql.connector
 
 def getRunMaps(earliest):
+  # this is the login info for connecting to the FNAL runinfo DB
   config = {
     'user': 'runinfoviewer',
     'password': '',
@@ -14,15 +19,24 @@ def getRunMaps(earliest):
   cnx = mysql.connector.connect(**config)
   cursor = cnx.cursor()
   
+  # this is the appropriate SQL query for getting what we want from the runInfo DB
   query = '''
              SELECT runnumber, string_value, time
              FROM fermiruninfo.runsession_parameter 
              WHERE name LIKE "CMS.HCAL_LEVEL1%:LOCAL_RUNKEY_SELECTED" AND runnumber >= {};
           '''.format(earliest)
   cursor.execute(query)
+
+
   runMap = {}
+  # runMap will have the structure:
+  # {"name_of_runkey": [(run#, time), (run#, time), ...], "name_of_other_runkey": [(#, time), ...], ... }
+
   latestMap = []
+  # latestMap will be ordered by age: ["runkey_name_of_latest_run", "second_most_recently_used_runkey", ...]
+
   for value in cursor:
+    # value has the structure [runnumber, runkey_name, time] as per SQL query
     if not str(value[1]) in runMap.keys():
       runMap[str(value[1])] = []
     else:
@@ -37,7 +51,9 @@ if __name__ == "__main__":
   import cgitb; cgitb.enable() # for troubleshooting
   form = cgi.FieldStorage()
   body = ""
+  
   if not form.getvalue('first'):
+    # return the splash page if no cgi arguments are passed
     body += '''
       <h2>Get all runs organized by local runkey since run:</h2>
       <form action="/cgi-bin/getRunTypes.cgi">
@@ -47,54 +63,45 @@ if __name__ == "__main__":
     '''
   
   else:
-    body += "<pre>"
+    # if it got a starting run number as a cgi argument, build the page
     runMap, latestMap = getRunMaps(form.getvalue('first'))
     
-    body += "\t \t \t \t \t \t<input type='button' onclick='goToDiff();' value='diff'>"
+    diffButton = "<pre>\t \t \t \t \t \t<input type='button' onclick='goToDiff();' value='diff'></pre>\n"
+
     for runKey in latestMap:
-      body += "<br><br>" + runKey + ":"
+      body += "\n    <tt>" + runKey + ": </tt>"
+      
+      # make a div for all the runs of a given run key, and add a JS toggle button for each div
       body += " <input type='button' value='toggle'" 
       body += " onclick='hide(" + '"' + runKey + '"' + ")'>"
-      body += "<div id='" + runKey +"'>"
+      body += "\n    <div id='" + runKey +"'>"
+      # put a diff button at the top of every group of runs
+      body += diffButton
+
       for run in reversed(runMap[runKey]):
-        body += '<br>\t <input type="checkbox" value="{0}" onclick="tally();"> {0: >6} \t\t{1}'.format(run[0], run[1])
-      body += "</div>"
-      body += "<br><br>\t \t \t \t \t \t<input type='button' onclick='goToDiff();' value='diff'>"
-    body+="</pre>"
+        # go through all the runs in a run key, put newest runs at the top.
+        body += '      <pre>\t <input type="checkbox" value="{0}" onclick="tally();"> {0: >6} \t\t{1} </pre>\n'.format(run[0], run[1])
+      body += "    </div><br>\n"
+      
+      # add a diff link button at the bottom too
+    body += "    " + diffButton
   
+  # now serve the page
   print "Content-type: text/html"
   print
-  print "<html><head>"
   print """
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script>
-  function goToDiff() {
-    var runNumbers = $(':checkbox:checked');
-    if (runNumbers.length == 2) {
-      window.location.href='/cgi-bin/diffCfgScripts.cgi?runX=' + $(runNumbers[0]).val() + '&runY=' + $(runNumbers[1]).val(); 
-    }
-    else if (runNumbers.length != 2) { tally(); }
-  }
-  </script>
-  <script>
-  function tally() {
-    if ($(':checkbox:checked').length > 2) {
-      $(":checkbox").prop('checked', false);
-    }
-  }
-  </script> 
-  <script>
-  function hide(divID) {
-    var x = document.getElementById(divID);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }  
-  }
-  </script>
- 
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/runTypeScripts.js"> </script>
+    <style>
+      pre {
+        margin: 0;
+      }
+    </style>
+  </head>
       """
-  print" </head><body>"
+  print"  <body>"
   print body
-  print "</body></html>"
+  print "  </body>"
+  print "</html>"
